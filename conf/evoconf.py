@@ -27,12 +27,6 @@ agents = generate_agents(
 
 stop_condition = lambda: StepLimitStopCondition(1000)
 
-minimal_energy = lambda: 10
-reproduction_minimum = lambda: 90
-migration_minimum = lambda: 120
-newborn_energy = lambda: 100
-transferred_energy = lambda: 40
-
 evaluation = lambda: StyblinskiTangEvaluation()
 crossover = lambda: AverageVectorCrossover(size=size)
 mutation = lambda: UniformVectorMutation(probability=0.1, radius=0.1)
