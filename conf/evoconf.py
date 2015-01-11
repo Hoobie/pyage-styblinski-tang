@@ -14,21 +14,8 @@ from solution.evaluation import StyblinskiTangEvaluation
 from solution.crossover import AverageVectorCrossover
 from solution.mutation import UniformVectorMutation
 
-vectors = [
-	[-5, -5, -5, -5, -5],
-    [-4, -4, -4, -4, -4],
-    [-3, -3, -3, -3, -3],
-    [-2, -2, -2, -2, -2],
-    [-1, -1, -1, -1, -1],
-    [0, 0, 0, 0, 0, 0],
-    [1, 1, 1, 1, 1],
-    [2, 2, 2, 2, 2],
-    [3, 3, 3, 3, 3],
-    [4, 4, 4, 4, 4],
-    [5, 5, 5, 5, 5],
-]
 
-vector_nr = len(vectors)
+size = 100
 
 logger = logging.getLogger(__name__)
 
@@ -38,7 +25,7 @@ agents = generate_agents(
     "agent" , agents_count , Agent
     )
 
-stop_condition = lambda: StepLimitStopCondition(10000)
+stop_condition = lambda: StepLimitStopCondition(1000)
 
 minimal_energy = lambda: 10
 reproduction_minimum = lambda: 90
@@ -47,12 +34,12 @@ newborn_energy = lambda: 100
 transferred_energy = lambda: 40
 
 evaluation = lambda: StyblinskiTangEvaluation()
-crossover = lambda: AverageVectorCrossover(size=vector_nr)
-mutation = lambda: UniformVectorMutation(probability=0.1, radius=1)
-selection = lambda: TournamentSelection(size=vector_nr, tournament_size=vector_nr) # magic numbers xD
+crossover = lambda: AverageVectorCrossover(size=size)
+mutation = lambda: UniformVectorMutation(probability=0.1, radius=0.1)
+selection = lambda: TournamentSelection(size=20, tournament_size=20)
 
 operators = lambda: [evaluation(), selection(), crossover(), mutation()]
-initializer = lambda: VectorInitializer(size=vector_nr, lowerbound=-5, upperbound=5)
+initializer = lambda: VectorInitializer(size=size, lowerbound=-5, upperbound=5)
 
 address_provider = address.SequenceAddressProvider
 
