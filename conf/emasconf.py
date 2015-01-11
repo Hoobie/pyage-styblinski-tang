@@ -15,6 +15,7 @@ from solution.emas_initializer import emas_initializer
 from solution.evaluation import StyblinskiTangEvaluation
 from solution.mutation import UniformVectorMutation
 
+
 vectors = [
 	[-5, -5, -5, -5, -5],
     [-4, -4, -4, -4, -4],
