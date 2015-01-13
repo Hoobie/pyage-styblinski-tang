@@ -22,8 +22,8 @@ logger = logging.getLogger(__name__)
 agents_count = 5
 logger.debug("%s agents", agents_count)
 agents = generate_agents(
-    "agent" , agents_count , Agent
-    )
+    "agent", agents_count, Agent
+)
 
 stop_condition = lambda: StepLimitStopCondition(1000)
 
@@ -41,5 +41,5 @@ migration = ParentMigration
 locator = GridLocator
 
 stats = lambda: StepStatistics(
-	'fitness_%s_pyage.txt' % __name__
-    )
+    'fitness_%s_pyage.txt' % __name__
+)

@@ -17,7 +17,7 @@ from solution.mutation import UniformVectorMutation
 
 
 vectors = [
-	[-5, -5, -5, -5, -5],
+    [-5, -5, -5, -5, -5],
     [-4, -4, -4, -4, -4],
     [-3, -3, -3, -3, -3],
     [-2, -2, -2, -2, -2],
@@ -42,8 +42,8 @@ stop_condition = lambda: StepLimitStopCondition(1000)
 
 agg_size = 40
 aggregated_agents = lambda: emas_initializer(
-	energy=40, lowerbound=-5, upperbound=5, size=agg_size
-	)
+    energy=40, lowerbound=-5, upperbound=5, size=agg_size
+)
 
 emas = EmasService
 
@@ -63,5 +63,5 @@ migration = ParentMigration
 locator = GridLocator
 
 stats = lambda: StepStatistics(
-	'fitness_%s_pyage.txt' % __name__
-    )
+    'fitness_%s_pyage.txt' % __name__
+)
